@@ -8,24 +8,15 @@ before_script:
 - 
 script:
 - mvn package -DskipTests
-
-#addons:
-#  s3_region: us-east-1
-#  artifacts:
-#    bucket: kbng-zeppelin
-#    debug: true
-#    paths:
-#    - target/sandbox-0.0.1-SNAPSHOT.jar
-
 before_deploy:
 - bash ./prepare-s3.sh
-
 deploy:
   provider: s3
   skip_cleanup: true
   access_key_id: AKIAJ5T3AQTJUF6WLMKA
   secret_access_key:
-    secure: QKnkBMIR0rjOhkV/7jWNtMzUfDOgysZ7ybXQO/q4BrkUWM/34iSmq/vzHBjE9Bqjs0cy8J6PhxQPuZkn+SQtDULJt84efntd3xdfebzILA9V9fSTY6yGikMIAM2v2jKyGWThbcP/q4eLzBPoBQeGXqyqv4zZwutpjx+HpKslLUsfypdFaPIs+OBPqCBfYT0+UT7tOXKk3pcW4Q/LLxR6Xzf8VpFdH80jAUdFAoQ9Qthu4Id9NDvbftEoPyEzRN8MsxezLW2BVPBV2is+2GOc0vLfr20tlo/xg/tXnl6aXqf93OQ0r+Ohe8zTONS3D+9ltntr5iAeeJwExsMXuctEvNLTTZwpHamVdO9/vH92kv9anKJI4sESAVl2OyRKu/PLs4x/qqIycErQxmh3y+Ram0Z9EosVEcQF9D5knAnJzei6sK4sjpguufAG7sdheLVhGYfKAp4vk4wbFF4vVCeyJ4MQ9dAFETqi0UFUnbwlt02WRi9h1Zb2/A47V72E8QKTuh1dhovOy6OTuC3QObNqJbWFL6NvPWhTbVI0wRE6yKKUSzTR/jzbFumCaxbiGUMkgeEelWH7J+Abo5H03MZCSWOW1qmnLrF/D2qN7+qWXGsftWXeeFojxvRbJRS0lcOT8H/XohBYWdsUYMhSaXgR2GhP8S1pSj8DNkOw4zz4VWk=
-  bucket: "kbng-zeppelin"
+    secure: RyWRTOG0TTGxFIIrQiVMz9aaLYXRJdPEAK/MU3Ous0/5vS5M6oPzwi1RG9gl0vt5qH0I2nswllMWHNM8SxO0ba6hIigWY5DOvJ7je4W4w3W03tBnet0cmG92MdGDbcsaT1YCYY8f5TIyndEBqN1CnO00vesDK979nKwTaOTDk3tFLAXBZd9nrbG297VyFuZmVCy2tMygciEpvNpT4BkbeVYzvmKfEhFOsq0Rty/oocL/f6toaqaz+SVmNLgFSfv7eCdq3Sufk/BK2w2Y4viXtcTPpaEQtbHgLMEwTlafYOxXjPpujIsq773szSSiRqsno4hJZk9c8tzhysHxBdicJwTUerzgQ84/ERMNyQ1L+McgPBcf8aDf/f0/smncV+geGZPzGCYeVQgxM0M95DgpawMbdSRDmH0W1z2aZOzS/B/Kn5vasIUlbleM2qu/FHDsQp+UqIH7st2HrKLoa2ZQZdMCpBnFHvrPC12wK3DKvXHsdWcsuJ4m0R6m6i4GqQtjjhdcFLwv4wcKo9Lg9EuemYiJRtYhfgHioJ4cP80dthuz3DK6lJQwvnmhWeAbxsXuMSoln53/nKeYRy67bne4Ai+9I5k9KQlKSrV0DvKir9hPd0mkoqR4MJ3aARc42f/iOnXKm38iPQWI8xejQ157rn5MLf29M+JduFczJYyO6Hk=
+  bucket: kbng-zeppelin
   upload-dir: travis-builds
   local_dir: s3-source
+  detect_encoding: true
