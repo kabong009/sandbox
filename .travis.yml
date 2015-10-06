@@ -18,7 +18,7 @@ script:
 #    - target/sandbox-0.0.1-SNAPSHOT.jar
 
 before_deploy:
-- ./prepare-s3.sh
+- bash ./prepare-s3.sh
 
 deploy:
   provider: s3
