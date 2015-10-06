@@ -17,6 +17,7 @@ deploy:
   secret_access_key:
     secure: RyWRTOG0TTGxFIIrQiVMz9aaLYXRJdPEAK/MU3Ous0/5vS5M6oPzwi1RG9gl0vt5qH0I2nswllMWHNM8SxO0ba6hIigWY5DOvJ7je4W4w3W03tBnet0cmG92MdGDbcsaT1YCYY8f5TIyndEBqN1CnO00vesDK979nKwTaOTDk3tFLAXBZd9nrbG297VyFuZmVCy2tMygciEpvNpT4BkbeVYzvmKfEhFOsq0Rty/oocL/f6toaqaz+SVmNLgFSfv7eCdq3Sufk/BK2w2Y4viXtcTPpaEQtbHgLMEwTlafYOxXjPpujIsq773szSSiRqsno4hJZk9c8tzhysHxBdicJwTUerzgQ84/ERMNyQ1L+McgPBcf8aDf/f0/smncV+geGZPzGCYeVQgxM0M95DgpawMbdSRDmH0W1z2aZOzS/B/Kn5vasIUlbleM2qu/FHDsQp+UqIH7st2HrKLoa2ZQZdMCpBnFHvrPC12wK3DKvXHsdWcsuJ4m0R6m6i4GqQtjjhdcFLwv4wcKo9Lg9EuemYiJRtYhfgHioJ4cP80dthuz3DK6lJQwvnmhWeAbxsXuMSoln53/nKeYRy67bne4Ai+9I5k9KQlKSrV0DvKir9hPd0mkoqR4MJ3aARc42f/iOnXKm38iPQWI8xejQ157rn5MLf29M+JduFczJYyO6Hk=
   bucket: kbng-zeppelin
-  upload-dir: travis-builds
+  region: us-east-1
+  #upload-dir: travis-builds
   local_dir: s3-source
   detect_encoding: true
