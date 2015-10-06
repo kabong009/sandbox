@@ -8,8 +8,7 @@ mkdir ${OUTPUT_DIR}
 
 # copy the tar
 echo "Current dir is ${PWD}"
-ls zeppelin-distribution/target/
-cp zeppelin-distribution/target/zepp*gz ./${OUTPUT_DIR}/.
-cp zeppelin-distribution/target/zeppelin-0.6.0-incubating-SNAPSHOT.tar.gz ./${OUTPUT_DIR}/.
+ls target
+cp target/*jar ./${OUTPUT_DIR}/.
 
 ls ${OUTPUT_DIR}
