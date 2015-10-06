@@ -8,20 +8,21 @@ before_script:
 - 
 script:
 - mvn package -DskipTests
-#after_failure:
 
-#after_script:
-#- 
+#addons:
+#  s3_region: us-east-1
+#  artifacts:
+#    bucket: kbng-zeppelin
+#    debug: true
+#    paths:
+#    - target/sandbox-0.0.1-SNAPSHOT.jar
 
-#before_deploy:
-#  - bash ./prepare-s3.sh
-
-addons:
-  s3_region: "us-east-1"
-  artifacts:
-    bucket: "kbng-zeppelin"
-    debug: true
-    paths:
-    - "target/sandbox-0.0.1-SNAPSHOT.jar"
-#    - $(ls $HOME/zeppelin-distribution/target/*gz | tr "\n" ":")
-
+deploy:
+  provider: s3
+  skip_cleanup: true
+  access_key_id: AKIAJ5T3AQTJUF6WLMKA
+  secret_access_key:
+    secure: QKnkBMIR0rjOhkV/7jWNtMzUfDOgysZ7ybXQO/q4BrkUWM/34iSmq/vzHBjE9Bqjs0cy8J6PhxQPuZkn+SQtDULJt84efntd3xdfebzILA9V9fSTY6yGikMIAM2v2jKyGWThbcP/q4eLzBPoBQeGXqyqv4zZwutpjx+HpKslLUsfypdFaPIs+OBPqCBfYT0+UT7tOXKk3pcW4Q/LLxR6Xzf8VpFdH80jAUdFAoQ9Qthu4Id9NDvbftEoPyEzRN8MsxezLW2BVPBV2is+2GOc0vLfr20tlo/xg/tXnl6aXqf93OQ0r+Ohe8zTONS3D+9ltntr5iAeeJwExsMXuctEvNLTTZwpHamVdO9/vH92kv9anKJI4sESAVl2OyRKu/PLs4x/qqIycErQxmh3y+Ram0Z9EosVEcQF9D5knAnJzei6sK4sjpguufAG7sdheLVhGYfKAp4vk4wbFF4vVCeyJ4MQ9dAFETqi0UFUnbwlt02WRi9h1Zb2/A47V72E8QKTuh1dhovOy6OTuC3QObNqJbWFL6NvPWhTbVI0wRE6yKKUSzTR/jzbFumCaxbiGUMkgeEelWH7J+Abo5H03MZCSWOW1qmnLrF/D2qN7+qWXGsftWXeeFojxvRbJRS0lcOT8H/XohBYWdsUYMhSaXgR2GhP8S1pSj8DNkOw4zz4VWk=
+  bucket: "kbng-zeppelin"
+  upload-dir: travis-builds
+  local_dir: target/sandbox-0.0.1-SNAPSHOT.jar
