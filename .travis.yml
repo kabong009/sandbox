@@ -1,0 +1,26 @@
+language: java
+jdk:
+- oraclejdk7
+before_install:
+- export DISPLAY=:99.0
+- sh -e /etc/init.d/xvfb start
+before_script:
+- 
+script:
+- mvn package -DskipTests
+#after_failure:
+
+#after_script:
+#- 
+
+#before_deploy:
+#  - bash ./prepare-s3.sh
+
+addons:
+  s3_region: "us-east-1"
+  artifacts:
+    bucket: "kbng-zeppelin"
+    debug: true
+    paths:
+    - "target/sandbox-0.0.1-SNAPSHOT.jar"
+#    - $(ls $HOME/zeppelin-distribution/target/*gz | tr "\n" ":")
